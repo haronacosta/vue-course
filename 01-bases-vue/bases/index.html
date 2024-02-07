@@ -8,16 +8,13 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
+
     <!-- Control absoluto de Vue.js  en este div  -->
     <div id="app">
-      <h1>Batman quotes</h1>
+      <h3>{{ quote }}</h3>
+      <blockquote>- {{ author }}</blockquote>
 
-      <ul>
-        <li v-for="({quote, author}, index) in quotes">
-          <div>{{index + 1}} - {{ quote }}</div>
-          <blockquote>-{{author}}</blockquote>
-        </li>
-      </ul>
+      <button v-on:click="changeQuote">Change quote</button>
     </div>
   </body>
 
