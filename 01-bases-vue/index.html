@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue.js Intro</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vue.js Intro</title>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <!-- Control absoluto de Vue.js  en este div  -->
-    <div id="app">
-      <h1>Batman quotes</h1>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	</head>
+	<body>
+		<!-- Control absoluto de Vue.js  en este div  -->
+		<div id="app">
+			<h1>Batman quotes</h1>
 
-      <ul>
-        <li v-for="({quote, author}, index) in quotes">
-          <div>{{index + 1}} - {{ quote }}</div>
-          <blockquote>-{{author}}</blockquote>
-        </li>
-      </ul>
-    </div>
-  </body>
+			<small>{{ newQuote }}</small>
 
-  <script type="module" src="app.js"></script>
+			<hr />
+
+			<input
+			  type="text"
+			  v-model="newQuote"
+			  v-on:keypress.enter='addQuote'
+			  />
+
+			<hr />
+
+			<ul>
+				<li v-for="({quote, author}, index) in quotes">
+					<div>{{index + 1}} - {{ quote }}</div>
+					<!-- <blockquote v-if='author'>-{{author}}</blockquote> -->
+					<blockquote v-show='author'>-{{author}}</blockquote>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+	<script type="module" src="app.js"></script>
 </html>
