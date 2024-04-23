@@ -1,1 +1,7 @@
 @import './base.css';
+
+#app {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
